@@ -1,0 +1,46 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  become_method: sudo
+  gather_facts: no
+  vars_files: 
+    - users.yml
+  tasks:
+  - name: Generate users and keys for host
+    set_fact:
+      username: "{{ users.values() | rejectattr('project','undefined') | selectattr('project', 'inarray', group_names) | map(attribute='username') | list }}"
+      keys: "{{ users.values() | rejectattr('project','undefined') | selectattr('project', 'inarray', group_names) | map(attribute='key') | list }}"
+      user_group: "{{ users.values() | rejectattr('project','undefined') | selectattr('project', 'inarray', group_names) | map(attribute='groups') | list }}"
+
+  # - name: Print dict
+  #   debug:
+  #     msg: "User {{ item.key }} is {{ item.value.key }}"
+  #   # loop: "{{ lookup('dict', users) }}"
+  #   loop: "{{ lookup('dict', users) }}"
+
+  - user:
+      name: "{{ item.0 }}"
+      shell: /bin/bash
+      home: /home/{{ item.0 }}
+      groups: "{{ item.1 }}"
+    with_together:
+      - "{{ username }}"
+      - "{{ user_group }}"
+
+  - name: "Add user sudo"
+    become: yes
+    template: src=sudoers.j2 dest=/etc/sudoers.d/{{ item }} owner=root group=root mode=0440
+    with_items: "{{ username }}"
+
+  - name: Set keys on host 
+    become: yes
+    authorized_key: 
+      user: "{{ item.0 }}"
+      state: present
+      key: "{{ item.1 }}" 
+      exclusive: yes
+    with_together:
+      - "{{ username }}"
+      - "{{ keys }}"
+

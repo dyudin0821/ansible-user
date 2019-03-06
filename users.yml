@@ -1,0 +1,14 @@
+users:
+  dyudin:
+    username: dyudin
+    groups: sudo
+    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC93yT1hC9/dMxykvCVguUivBm/rp9rXrRiG0Yey39Btoqj1Uc/tJc1wS6K4v40aAoT6Tt5NjhPPtOSF/WinvW6Jhek8WjQJmPpQ+fQ7HqfIeHPgGUCorGGNqy7rBMREgsX10SW/TsynlEt6XkP+Hs3PO84i3R415zheWkSddJbG4hSb4/rAghrUEULxJNYXUAFOrh0tN+86U7Ao69zqcGFDTZxhRUNL7YlUWFJ3GJA6Tdh/+wV4Wq7RpU+FJE6X7IfoUIj2973zBLKwB15Lp5x+QZyJH0cd3SKtNa4fGbs4J6J/5Vc5hir9mxKKEgfFcQ4x1aRP8rx8jH4WI3aYvUz d.udin@dostaevsky.ru"
+    project:
+      - all
+
+  ipopov:
+    username: ipopov
+    groups: sudo
+    key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgzIODdMNfnGcVN8DNqAxS7UE65mBsDstTAXxJLZvc8TyL4U5RRYqJNQOgW8hVdB0grcACtnIH5Dp/T690VIY3KYUHORcwnzjIi8MG/zmtmUYy185doV96kTZ+JtQZ/paDGOyi97aFJ09r3tj4GK3MgK1fETA6Gl+FG+NCGDUtqOGRiRJUW0VEkjuXtptLJ97Ba7TC7gxXpzA82NXkuydg3SJjsLGPDdvWmeFGl8rWVAlPuZdtIWG06ZaKBGYrJCH4ztXaTgpCqY59yWqN0fi3QKCoe2no/X7ajlNssfwEISKAaYNVOr9MSAVMpL0pu2nqYLgqMVcfMg7ZQNst1CW/ ipopov@4xxi.com"
+    project:
+      - haproxy

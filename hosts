@@ -1,0 +1,6 @@
+[galera]
+#172.28.128.5 ansible_user=vagrant ansible_ssh_private_key_file=~/vagrant.pem ansible_python_interpreter=/usr/bin/python3
+#172.28.128.6 ansible_user=vagrant ansible_ssh_private_key_file=~/vagrant.pem ansible_python_interpreter=/usr/bin/python3
+
+[haproxy]
+172.28.128.7 ansible_user=vagrant ansible_ssh_private_key_file=~/vagrant.pem ansible_python_interpreter=/usr/bin/python3
